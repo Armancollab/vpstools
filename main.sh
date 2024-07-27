@@ -94,6 +94,12 @@ install_docker() {
     echo "Docker installation complete."
 }
 
+install_ollama() {
+    echo "Installing Ollama..."
+    curl -fsSL https://ollama.com/install.sh | sh
+    echo "Ollama installation complete."
+}
+
 echo "Select the package to install:"
 echo "1) Python"
 echo "2) Conda"
@@ -103,8 +109,9 @@ echo "5) Vim"
 echo "6) Git"
 echo "7) CMake"
 echo "8) Docker"
+echo "9) Ollama"
 
-read -rp "Enter your choice [1-8]: " choice
+read -rp "Enter your choice [1-9]: " choice
 
 case $choice in
     1)
@@ -130,6 +137,9 @@ case $choice in
         ;;
     8)
         install_docker
+        ;;
+    9)
+        install_ollama
         ;;
     *)
         echo "Invalid choice!"
